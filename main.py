@@ -1,4 +1,5 @@
 print("=== CALCULADORA DE MÉDIA ===")
+print("=nova linha=")
 
 nome = input("Nome do aluno: ")
 
