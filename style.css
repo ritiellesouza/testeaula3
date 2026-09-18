@@ -1,0 +1,121 @@
+/* 1. Cores e estilos gerais: altere estas variáveis para testar outra identidade visual. */
+:root {
+  --paper: #f3efe8;
+  --ink: #202c29;
+  --muted: #68736d;
+  --line: #d5d8cf;
+  --accent: #bc6e43;
+  --green: #173e38;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Trebuchet MS", sans-serif; }
+img { display: block; width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.section-shell { width: min(100% - 8vw, 1320px); margin-inline: auto; }
+
+/* 2. Cabeçalho */
+.site-header { width: min(100% - 8vw, 1320px); height: 96px; margin: auto; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.logo { font-family: Georgia, serif; font-size: 2rem; font-weight: 700; letter-spacing: -.075em; line-height: 1; }
+.logo span, .section-heading h2 span { color: var(--accent); }
+.site-nav { display: flex; gap: clamp(1.5rem, 3vw, 3rem); align-items: center; }
+.site-nav a, .site-footer a:not(.logo) { font-size: .85rem; font-weight: 700; }
+.site-nav a:hover, .site-footer a:hover, .text-link:hover { color: var(--accent); }
+.menu-button { display: none; }
+
+/* 3. Destaque */
+.hero { min-height: 610px; display: grid; grid-template-columns: 43% 57%; align-items: center; padding-block: 72px 94px; }
+.hero-copy { position: relative; z-index: 1; padding: 0 4vw 2rem 0; }
+.eyebrow { margin: 0 0 28px; color: var(--accent); font-size: .69rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+.eyebrow-line { display: inline-block; width: 22px; height: 1px; margin: 0 9px 4px 0; background: currentColor; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2 { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.055em; }
+h1 { max-width: 680px; margin-bottom: 26px; font-size: clamp(4.2rem, 7.6vw, 8.8rem); line-height: .95; }
+h1 em { color: var(--accent); font-weight: 400; }
+.hero-description { max-width: 350px; color: var(--muted); font-size: 1.03rem; line-height: 1.7; }
+.text-link { display: inline-flex; align-items: center; gap: 25px; margin-top: 25px; padding-bottom: 10px; border-bottom: 1px solid var(--ink); font-size: .85rem; font-weight: 700; transition: color .2s; }
+.text-link span { font-size: 1.2rem; }
+.hero-visual { align-self: stretch; position: relative; min-height: 490px; }
+.hero-visual img { height: 100%; object-fit: cover; object-position: center; }
+.image-note { position: absolute; right: 16px; bottom: 16px; padding: 11px 14px; background: var(--paper); font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+
+/* 4. Sobre */
+.about { display: grid; grid-template-columns: 43% 1fr; gap: clamp(50px, 9vw, 140px); align-items: center; padding-block: 70px 140px; }
+.about-image { height: 550px; overflow: hidden; }
+.about-image img { height: 100%; object-fit: cover; }
+.about-copy h2 { max-width: 590px; margin-bottom: 28px; font-size: clamp(3rem, 5vw, 5.6rem); line-height: 1.05; }
+.about-copy > p:not(.eyebrow) { max-width: 520px; color: var(--muted); line-height: 1.8; }
+.about-detail { display: flex; align-items: end; gap: 22px; margin-top: 44px; }
+.about-detail img { width: 100px; height: 125px; object-fit: cover; }
+.about-detail p { max-width: 155px; margin: 0 0 4px; font-family: Georgia, serif; font-size: 1.2rem; font-style: italic; line-height: 1.25; }
+
+/* 5. Grade de projetos e filtros */
+.projects { padding-block: 30px 140px; }
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 35px; }
+.section-heading h2 { margin-bottom: 30px; font-size: clamp(3.1rem, 5.5vw, 6rem); line-height: 1; }
+.section-heading > p { max-width: 240px; margin-bottom: 35px; color: var(--muted); line-height: 1.6; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 35px; }
+.filter-button { min-height: 43px; padding: 0 20px; border: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); cursor: pointer; font-size: .76rem; font-weight: 700; transition: background .2s, color .2s, border-color .2s; }
+.filter-button:hover, .filter-button.is-active { border-color: var(--green); background: var(--green); color: white; }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 45px 25px; }
+.project-card[hidden] { display: none; }
+.project-card img { height: clamp(280px, 31vw, 450px); object-fit: cover; transition: transform .45s ease; }
+.project-card { overflow: hidden; }
+.project-card:hover img { transform: scale(1.035); }
+.project-meta { display: flex; justify-content: space-between; align-items: end; gap: 20px; padding-top: 17px; border-top: 1px solid var(--line); margin-top: 17px; }
+.project-meta div > span { display: block; margin-bottom: 8px; color: var(--accent); font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.project-meta h3 { margin: 0; font-family: Georgia, serif; font-size: clamp(1.5rem, 2.2vw, 2.3rem); font-weight: 400; }
+.project-meta > span { padding-bottom: 5px; font-size: 1.3rem; }
+.filter-status { margin-top: 27px; color: var(--muted); font-size: .76rem; }
+
+/* 6. Contato e rodapé */
+.contact { background: var(--green) url("images/2_afcas12.jpg") center / cover; }
+.contact-inner { min-height: 480px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding-block: 85px; }
+.contact .eyebrow { color: #f8f2db; }
+.contact h2 { max-width: 780px; margin-bottom: 38px; color: #123b36; font-size: clamp(3.2rem, 6.5vw, 7rem); line-height: 1; }
+.contact-button { display: inline-flex; justify-content: space-between; align-items: center; gap: 50px; min-width: 230px; padding: 17px 20px; background: var(--ink); color: white; font-size: .8rem; font-weight: 700; transition: background .2s; }
+.contact-button:hover { background: var(--accent); }
+.contact-button span { font-size: 1.25rem; }
+.demo-note { max-width: 520px; margin: 24px 0 0; color: #173e38; font-size: .72rem; line-height: 1.5; }
+.site-footer { min-height: 140px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+.site-footer p { margin: 0; color: var(--muted); font-size: .75rem; }
+
+/* 7. Ajustes para telas menores */
+@media (max-width: 760px) {
+  .site-header { height: 76px; }
+  .menu-button { display: grid; gap: 5px; padding: 12px; border: 0; background: transparent; cursor: pointer; }
+  .menu-button span { display: block; width: 24px; height: 2px; background: var(--ink); }
+  .site-nav { display: none; position: absolute; z-index: 5; top: 76px; left: 0; right: 0; padding: 20px 4vw 27px; background: var(--paper); box-shadow: 0 12px 20px #202c291a; }
+  .site-nav.is-open { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+  .hero { grid-template-columns: 1fr; padding-block: 70px 80px; }
+  .hero-copy { padding: 0 0 45px; }
+  h1 { max-width: 570px; font-size: clamp(3.8rem, 12vw, 6.5rem); }
+  .hero-visual { min-height: 380px; }
+  .about { grid-template-columns: 1fr; gap: 45px; padding-block: 25px 100px; }
+  .about-image { height: 430px; }
+  .about-copy h2 { font-size: clamp(3.1rem, 9vw, 5rem); }
+  .projects { padding-bottom: 100px; }
+  .section-heading { display: block; }
+  .section-heading > p { max-width: 440px; }
+  .project-grid { gap: 30px 18px; }
+  .project-card img { height: 280px; }
+}
+
+@media (max-width: 520px) {
+  .section-shell, .site-header { width: min(100% - 40px, 1320px); }
+  .project-grid { grid-template-columns: 1fr; }
+  .project-card img { height: 330px; }
+  .hero-visual { min-height: 300px; }
+  .about-image { height: 360px; }
+  .contact-inner { min-height: 430px; }
+  .site-footer { align-items: flex-start; flex-direction: column; justify-content: center; padding-block: 30px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
